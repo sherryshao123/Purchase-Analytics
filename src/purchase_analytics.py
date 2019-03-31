@@ -60,7 +60,5 @@ if __name__ == "__main__":
 		f.write(OUTPUT_HEADER)
 		sorted_report = sorted(report.items(), key=lambda x: int(x[0]))
 		for department_id, row in sorted_report:
-			res = [department_id] + list(row.values())
-			line = ",".join(map(lambda x: str(x), res)) + "\n"
-			# print("Writing to file...", line)
+			line = department_id + "," + str(row["number_of_orders"]) + "," + str(row["number_of_first_orders"]) + "," + row['percentage'] + "\n"
 			f.write(line)	
